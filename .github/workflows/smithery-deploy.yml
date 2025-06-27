@@ -1,0 +1,17 @@
+name: Deploy to Smithery
+
+on:
+  push:
+    branches: [ main ]  # 或者您的主分支名称
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Deploy to Smithery
+        uses: smithery-ai/deploy-action@v1
+        with:
+          smithery-token: ${{ secrets.SMITHERY_TOKEN }}
+          project-id: deep-research
