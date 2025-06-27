@@ -1,0 +1,23 @@
+# smithery.yaml 
+version: 1 
+name: deep-research 
+type: web 
+build: 
+  cmd: npm install && npm run build 
+  output: .next 
+run: 
+  cmd: npm start 
+  port: 3000 
+env: 
+  # MCP 核心配置 
+  - key: MCP_AI_PROVIDER 
+    value: google 
+  - key: MCP_SEARCH_PROVIDER 
+    value: model 
+  - key: MCP_THINKING_MODEL 
+    value: gemini-2.0-flash-thinking-exp 
+  - key: MCP_TASK_MODEL 
+    value: gemini-2.0-flash-exp 
+  # API 密钥 (在 Smithery 控制台中设置为安全变量) 
+  - key: GOOGLE_GENERATIVE_AI_API_KEY 
+    secret: true
