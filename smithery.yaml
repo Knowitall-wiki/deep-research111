@@ -2,11 +2,11 @@
 version: 1 
 name: deep-research 
 type: web 
-build: 
-  cmd: npm install && npm run build 
-  output: .next 
-run: 
-  cmd: npm start 
+build:
+  cmd: pnpm install && pnpm run build
+  output: .next
+run:
+  cmd: pnpm start 
   port: 3000 
 env: 
   # MCP 核心配置 
