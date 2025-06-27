@@ -3,13 +3,17 @@ version: 1
 name: deep-research 
 type: web 
 build:
-  cmd: pnpm install && pnpm run build
+  cmd: pnpm install && pnpm run build:standalone
   output: .next
 run:
-  cmd: pnpm start 
-  port: 3000 
-env: 
-  # MCP 核心配置 
+  cmd: node .next/standalone/server.js
+  port: 3000
+env:
+  - key: NODE_ENV
+    value: production
+  - key: NEXT_PUBLIC_BUILD_MODE
+    value: standalone
+  # MCP 核心配置
   - key: MCP_AI_PROVIDER 
     value: google 
   - key: MCP_SEARCH_PROVIDER 
